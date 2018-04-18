@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import ptit.nttrung.thibanglayxe.R;
+import ptit.nttrung.thibanglayxe.util.SharedPrefsUtil;
 
 public class SplashActivity extends AppCompatActivity {
     private ImageView app_name;
@@ -72,12 +73,12 @@ public class SplashActivity extends AppCompatActivity {
 
             public void onAnimationEnd(Animation animation) {
                 SplashActivity.this.tv_app_content.setVisibility(View.VISIBLE);
-//                if (SharedPreferencesUtils.getString(Util.CLASSOFLICENSE) == null
-//                        || SharedPreferencesUtils.getString(Util.CLASSOFLICENSE).isEmpty()
-//                        || !SharedPreferencesUtils.getBoolean(Util.FINISHGUIDE, false)) {
-//                    SplashActivity.this.startActivity(new Intent(SplashActivity.this, ChooseClassScreen.class));
-//                    SplashActivity.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-//                    SplashActivity.this.finish();
+                boolean isChooseClass = SharedPrefsUtil.getInstance().getBoolean("isChooseClass", false);
+                boolean isFinishGuide = SharedPrefsUtil.getInstance().getBoolean("isFinishGuide", false);
+//                if (isChooseClass == false && isFinishGuide == false){
+////                    SplashActivity.this.startActivity(new Intent(SplashActivity.this, ChooseClassScreen.class));
+////                    SplashActivity.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+////                    SplashActivity.this.finish();
 //                    return;
 //                }
                 SplashActivity.this.startActivity(new Intent(SplashActivity.this, MainActivity.class));

@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Thi GPLX</string>
+    <string name="ok">Đồng ý</string>
+    <string name="other_app">Các ứng dụng khác</string>
+    <string name="pass">ĐỖ</string>
+    <string name="review">Đánh giá ứng dụng</string>
+    <string name="search_hint">Search</string>
+    <string name="setting">Cài đặt</string>
+    <string name="share">Chia sẻ ứng dụng</string>
+    <string name="do_again">LÀM LẠI</string>
+    <string name="do_continue">TIẾP TỤC</string>
+    <string name="do_test">LÀM BÀI</string>
+    <string name="email_support">Email hỗ trợ</string>
+    <string name="end_test">KẾT THÚC</string>
+    <string name="faile">TRƯỢT</string>
+    <string name="favorite">Các câu đã nhớ</string>
+    <string name="home">Học bằng lái xe</string>
+    <string name="intro_duce">Hướng dẫn sử dụng</string>
+    <string name="cancel">Hủy bỏ</string>
+
 </resources>

@@ -2,6 +2,7 @@ package ptit.nttrung.thibanglayxe;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -12,8 +13,15 @@ public class GPLXApp extends Application {
 
     private static GPLXApp appController;
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
+
     public void onCreate() {
         super.onCreate();
+        appController = this;
         initImageLoader(getApplicationContext());
     }
 

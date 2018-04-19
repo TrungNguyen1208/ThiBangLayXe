@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -178,13 +177,16 @@ public class MainActivity extends AppCompatActivity {
 //        overridePendingTransition(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
     }
 
-    public void goToFragmentAndDontAddBackStack(Fragment fragment, String nameFragment) {
-        FragmentManager mFragmentManager = getSupportFragmentManager();
-        mFragmentManager.popBackStack(null, 1);
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
-        ft.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
-        ft.replace(R.id.contentMain, fragment);
-        ft.commit();
+    public void goToFragmentAndDontAddBackStack() {
+        MainFragment mainFragment = (MainFragment) this.getSupportFragmentManager().findFragmentByTag("MainFragment");
+        if (mainFragment == null) {
+            mainFragment = MainFragment.newInstance();
+
+            FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+//            transaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit, R.anim.fragment_slide_right_enter, R.anim.fragment_slide_right_exit);
+            transaction.replace(R.id.contentMain, mainFragment, "MainFragment");
+            transaction.commit();
+        }
     }
 
     protected void onStop() {
@@ -199,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 switch (position) {
                     case 1:
-                        MainActivity.this.goToFragmentAndDontAddBackStack(new MainFragment(), MainFragment.class.toString());
+                        MainActivity.this.goToFragmentAndDontAddBackStack();
                         return;
                     case 2:
                         Intent intent = new Intent(MainActivity.this, GuideLineScreen.class);

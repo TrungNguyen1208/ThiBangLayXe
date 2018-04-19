@@ -27,6 +27,13 @@ public class MainFragment extends Fragment implements OnSliderClickListener, OnP
     private SliderLayout mSlider;
     private View rootView;
 
+    public static MainFragment newInstance() {
+        Bundle args = new Bundle();
+        MainFragment fragment = new MainFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @SuppressLint("WrongConstant")
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +62,7 @@ public class MainFragment extends Fragment implements OnSliderClickListener, OnP
         for (String name : file_maps.keySet()) {
             TextSliderView textSliderView = new TextSliderView(getActivity());
             textSliderView.description(name).image(((Integer) file_maps.get(name)).intValue())
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
+                    .setScaleType(BaseSliderView.ScaleType.FitCenterCrop)
                     .setOnSliderClickListener(this);
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle().putString("extra", name);

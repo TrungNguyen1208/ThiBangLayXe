@@ -58,5 +58,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.1'
 
+    implementation 'com.ss.bannerslider:bannerslider:2.0.0'
+
     testImplementation 'junit:junit:4.12'
 }

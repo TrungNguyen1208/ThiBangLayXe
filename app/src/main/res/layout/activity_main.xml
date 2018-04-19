@@ -6,34 +6,23 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
 
-        <RelativeLayout
-            android:background="@color/primary"
-            android:id="@+id/actionbar"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <FrameLayout
-                android:id="@+id/toolbar_container"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:minHeight="?attr/actionBarSize"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
-            </FrameLayout>
-        </RelativeLayout>
-
-        <FrameLayout
-            android:id="@+id/contentMain"
-            android:layout_below="@+id/actionbar"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent" />
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
     </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/contentMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/actionbar" />
 </RelativeLayout>
